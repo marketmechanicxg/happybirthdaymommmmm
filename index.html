@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Sepenggal cerita yang ditulis di bawah bintang — dibikin khusus buat kamu." />
+  <meta name="theme-color" content="#030008" />
+  <title>Selamat Ulang Tahun — kamu semesta favoritku</title>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/effects.css" />
+
+  <style>
+    /* Critical above-fold paint */
+    html { background: #030008; }
+  </style>
+</head>
+<body>
+
+  <!-- ─── CURSOR ──────────────────────────────────────────── -->
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-follower" aria-hidden="true"></div>
+
+  <!-- ─── FIXED LAYERS ────────────────────────────────────── -->
+  <canvas id="galaxy-canvas" aria-hidden="true"></canvas>
+  <canvas id="three-canvas" aria-hidden="true"></canvas>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="grain-overlay" aria-hidden="true"></div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ─── PRELOADER ───────────────────────────────────────── -->
+  <div id="preloader" role="progressbar" aria-label="Lagi memuat">
+    <div class="preloader__bg"></div>
+    <div class="preloader__rings">
+      <div class="preloader__ring-outer"></div>
+      <div class="preloader__ring-mid"></div>
+    </div>
+
+    <div class="preloader__content">
+      <span class="preloader__heart">♡</span>
+      <div class="preloader__ring" aria-hidden="true"></div>
+      <p class="preloader__quote"></p>
+      <div>
+        <div class="preloader__bar">
+          <div class="preloader__bar-fill"></div>
+        </div>
+        <span class="preloader__percent">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── NAVIGATION ──────────────────────────────────────── -->
+  <nav class="nav" aria-label="Navigasi utama">
+    <a href="#hero" class="nav__logo">♡</a>
+    <ul class="nav__links" role="list">
+      <li><a href="#timeline" class="hover-line">Cerita</a></li>
+      <li><a href="#gallery" class="hover-line">Galeri</a></li>
+      <li><a href="#love-letter" class="hover-line">Surat</a></li>
+      <li><a href="#finale" class="hover-line">Penutup</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── NAV DOTS ─────────────────────────────────────────── -->
+  <nav class="nav-dots" aria-label="Navigasi bagian"></nav>
+
+  <!-- ─── AUDIO PLAYER (injected by audio-system.js) ──────── -->
+
+  <!-- ════════════════════════════════════════════════════════
+       MAIN EXPERIENCE
+       ════════════════════════════════════════════════════════ -->
+  <main>
+
+    <!-- ─── HERO ──────────────────────────────────────────── -->
+    <section class="hero" id="hero" data-scene="hero">
+      <div class="hero__particles" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <div class="hero__badge">
+          <span>Sepenggal rasa syukur, dirangkai di bawah bintang</span>
+        </div>
+
+        <h1 class="hero__headline t-hero glow-text">
+          <span class="line">Selamat Ulang Tahun</span>
+          <span class="line"><em>semesta</em> favoritku.</span>
+        </h1>
+
+        <p class="hero__sub">
+          Kayaknya semua bintang di langit emang udah diatur buat nuntun aku pulang ke kamu.
+          Dan setiap jalan yang pernah aku lewatin, cuma latihan diam-diam biar aku bisa nemuin kamu.
+        </p>
+
+        <div class="hero__cta">
+          <a href="#timeline" class="btn btn-primary" data-magnetic>
+            Masuk ke Ceritanya
+          </a>
+          <a href="#love-letter" class="btn btn-ghost" data-magnetic>
+            Baca Suratnya
+          </a>
+        </div>
+      </div>
+
+      <div class="hero__scroll-hint" aria-hidden="true">
+        <span>geser</span>
+        <div class="hero__scroll-arrow"></div>
+      </div>
+
+      <!-- Decorative orbs -->
+      <div class="orb-decoration orb-violet" style="width:600px;height:600px;top:-20%;right:-15%;opacity:0.5;"></div>
+      <div class="orb-decoration orb-pink" style="width:400px;height:400px;bottom:-10%;left:-8%;opacity:0.4;"></div>
+    </section>
+
+    <!-- ─── TIMELINE ──────────────────────────────────────── -->
+    <section class="timeline" id="timeline" data-scene="timeline">
+      <div class="section-number" aria-hidden="true">01</div>
+      <div class="container">
+        <header class="section-header">
+          <p class="t-label section-header__eyebrow" data-reveal="fade-up">
+            Gimana semua ini dimulai
+          </p>
+          <div class="section-divider"></div>
+          <h2 class="t-section-title section-header__title" data-reveal="fade-up">
+            Cerita<br /><em style="font-style:italic;color:var(--clr-pink-soft);">Sejauh Ini</em>
+          </h2>
+          <p class="section-header__desc t-body" data-reveal="fade-up">
+            Nggak semua cerita punya awal yang jelas.
+            Cerita ini juga mulai dari hal-hal kecil yang keliatannya biasa aja — dan pelan-pelan jadi salah satu hal paling berharga yang pernah aku punya.
+          </p>
+        </header>
+
+        <div class="timeline__inner">
+          <div class="timeline__glow-line" aria-hidden="true"></div>
+          <div class="timeline__items"></div>
+          <!-- Items injected by JS -->
+        </div>
+      </div>
+
+      <div class="orb-decoration orb-blue" style="width:500px;height:500px;top:30%;left:-10%;opacity:0.3;"></div>
+    </section>
+
+    <!-- ─── GALLERY ───────────────────────────────────────── -->
+    <section class="gallery" id="gallery" data-scene="gallery">
+      <div class="section-number" aria-hidden="true">02</div>
+      <div class="container">
+        <header class="section-header">
+          <p class="t-label section-header__eyebrow" data-reveal="fade-up">
+            Satu semesta, ada di satu orang
+          </p>
+          <div class="section-divider"></div>
+          <h2 class="t-section-title section-header__title" data-reveal="fade-up">
+            Setiap potret<br /><em style="font-style:italic;color:var(--clr-violet-soft);">punya kamu</em>
+          </h2>
+          <p class="section-header__desc t-body" data-reveal="fade-up">
+            Semua foto ini aku simpen baik-baik. Yang biasa aja. Yang nggak direncanain.
+            Apalagi yang kamu sendiri nggak sadar — aku udah kagum sama kamu dari situ.
+          </p>
+        </header>
+
+        <div class="gallery__grid" role="list">
+
+          <!-- ─── FOTO 1 ── ganti src dengan path foto kamu ── -->
+          <div class="gallery__card" data-reveal="fade-up">
+            <div class="gallery__card-inner">
+              <img class="gallery__photo" src="assets/images/img1.jpeg" alt="foto 1" loading="lazy" />
+              <div class="gallery__caption">
+                <span class="gallery__caption-text">Bersinar tanpa perlu usaha — dan itu yang bikin kamu istimewa.</span>
+                <span class="gallery__caption-tag">#tanpausaha</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── FOTO 2 ── -->
+          <div class="gallery__card" data-reveal="fade-up">
+            <div class="gallery__card-inner">
+              <img class="gallery__photo" src="assets/images/img2.jpeg" alt="foto 2" loading="lazy" />
+              <div class="gallery__caption">
+                <span class="gallery__caption-text">Ada aura tenang dari kamu yang nggak perlu penjelasan buat bikin orang di sekitar ngerasa nyaman.</span>
+                <span class="gallery__caption-tag">#takterbantahkan</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── FOTO 3 ── -->
+          <div class="gallery__card" data-reveal="fade-up">
+            <div class="gallery__card-inner">
+              <img class="gallery__photo" src="assets/images/img3.jpeg" alt="foto 3" loading="lazy" />
+              <div class="gallery__caption">
+                <span class="gallery__caption-text">Ketawa itu — satu-satunya suara yang bisa bikin ruangan sepi jadi rame lagi.</span>
+                <span class="gallery__caption-tag">#segalanya</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── FOTO 4 ── -->
+          <div class="gallery__card" data-reveal="fade-up">
+            <div class="gallery__card-inner">
+              <img class="gallery__photo" src="assets/images/img4.jpeg" alt="foto 4" loading="lazy" />
+              <div class="gallery__caption">
+                <span class="gallery__caption-text">Aku selalu inget cara kamu bersikap — tenang, dan penuh kehangatan.</span>
+                <span class="gallery__caption-tag">#takterhingga</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── FOTO 5 ── -->
+          <div class="gallery__card" data-reveal="fade-up">
+            <div class="gallery__card-inner">
+              <img class="gallery__photo" src="assets/images/img5.jpeg" alt="foto 5" loading="lazy" />
+              <div class="gallery__caption">
+                <span class="gallery__caption-text">Cahaya sore, dunia yang adem — dan entah kenapa, kamu tetep yang paling bersinar di situ.</span>
+                <span class="gallery__caption-tag">#bersinar</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── FOTO 6 ── -->
+          <div class="gallery__card" data-reveal="fade-up">
+            <div class="gallery__card-inner">
+              <img class="gallery__photo" src="assets/images/img6.jpeg" alt="foto 6" loading="lazy" />
+              <div class="gallery__caption">
+                <span class="gallery__caption-text">Kamu itu alasan aku percaya, ada hal-hal yang emang pantas diperjuangin sepenuh hati.</span>
+                <span class="gallery__caption-tag">#setia</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="text-align:center;margin-top:clamp(40px,6vw,72px);">
+          <p class="t-quote" data-reveal="scale" style="max-width:600px;margin:0 auto;color:var(--clr-white-40);">
+            "Bukan cuma soal fotonya. Tapi soal alasan aku motretnya."
+          </p>
+        </div>
+      </div>
+
+      <div class="orb-decoration orb-pink" style="width:600px;height:600px;bottom:-10%;right:-10%;opacity:0.35;"></div>
+    </section>
+
+    <!-- ─── LOVE LETTER ───────────────────────────────────── -->
+    <section class="love-letter" id="love-letter" data-scene="love-letter">
+      <div class="section-number" aria-hidden="true">03</div>
+      <div class="letter__spotlight" aria-hidden="true"></div>
+
+      <div class="love-letter__inner">
+        <header class="section-header">
+          <p class="t-label section-header__eyebrow" data-reveal="fade-up">
+            Ditulis jam 2 pagi, buat selamanya
+          </p>
+          <div class="section-divider"></div>
+          <h2 class="t-section-title section-header__title" data-reveal="fade-up">
+            Hal-hal yang aku simpen<br /><em style="font-style:italic;color:var(--clr-pink-soft);">diam-diam</em>
+          </h2>
+        </header>
+
+        <div class="love-letter__paper glass-card">
+          <span class="letter__salutation">Buat kamu, selalu —</span>
+
+          <div class="letter__body">
+            <p>
+              Selamat ulang tahun ya. 🤍 Hari ini bukan cuma soal nambahnya usia, tapi juga soal rasa syukur karena Tuhan pernah ngasih aku orang sebaik kamu. Jujur, punya kamu itu salah satu hal paling berharga yang pernah terjadi di hidup aku. Kamu yang bikin hari-hari biasa jadi kerasa jauh lebih berarti. Makasih ya udah ada, karena hidup jadi jauh lebih baik karena ada kamu di dalamnya.
+            </p>
+
+            <p>
+              Makasih juga udah jadi tempat paling nyaman buat aku pulang. Makasih karena selalu sabar, selalu dengerin cerita-cerita random aku, dan selalu ada bahkan di hari-hari aku lagi nggak baik-baik aja. Kamu mungkin nggak sadar, tapi kehadiran kamu selalu bikin aku ngerasa tenang.
+            </p>
+
+            <p>
+              Di umur yang baru ini, aku nggak cuma berharap semua impian kamu kesampean, tapi aku juga berharap kamu selalu punya alasan buat senyum. Semoga semua usaha yang lagi kamu jalanin berujung hasil yang terbaik, semoga doa-doa yang kamu simpen pelan-pelan dijawab, dan semoga tiap langkah yang kamu ambil selalu nuntun ke hal-hal baik.
+            </p>
+
+            <p>
+              Kalau suatu hari dunia kerasa terlalu berat, tolong inget kalau kamu nggak harus nanggung semuanya sendirian. Aku bakal selalu ada buat nemenin kamu, dukung semua yang kamu perjuangin, dan bangga sama tiap proses yang kamu lewatin. Aku nggak janji semuanya bakal selalu gampang, tapi aku janji bakal terus ada buat kamu, hari ini, besok, dan seterusnya. 🤍
+            </p>
+          </div>
+
+          <span class="letter__sign">— anakmu, selalu.</span>
+        </div>
+      </div>
+
+      <div class="orb-decoration orb-violet" style="width:700px;height:700px;top:-20%;left:-15%;opacity:0.25;"></div>
+    </section>
+
+    <!-- ─── FINALE ────────────────────────────────────────── -->
+    <section class="finale" id="finale" data-scene="finale">
+      <div class="finale__bg-glow" aria-hidden="true"></div>
+
+      <div class="finale__inner">
+        <span class="finale__heart" aria-hidden="true">♡</span>
+        <h2 class="finale__quote t-hero glow-text">
+          Sejauh apapun waktu berjalan,<br />aku selalu<br /><em>pulang ke kamu.</em>
+        </h2>
+        <p class="finale__sub t-label" style="margin-top:40px;">
+          Akhir cerita ini cuma awal dari yang baru
+        </p>
+
+        <div style="margin-top:60px;">
+          <a href="#hero" class="btn btn-primary pulse-glow" data-magnetic>
+            Mulai Lagi ♡
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────── -->
+  <footer>
+    <p>dibuat dengan sepenuh hati &amp; banyak malam yang nggak tidur &nbsp;·&nbsp; ♡</p>
+  </footer>
+
+  <!-- ════════════════════════════════════════════════════════
+       SCRIPTS
+       ════════════════════════════════════════════════════════ -->
+
+  <!-- CDN Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+  <!-- Core -->
+  <script src="js/core/config.js"></script>
+  <script src="js/core/state.js"></script>
+  <script src="js/core/app-controller.js"></script>
+
+  <!-- Systems -->
+  <script src="js/systems/performance.js"></script>
+  <script src="js/systems/galaxy-background.js"></script>
+  <script src="js/systems/three-background.js"></script>
+  <script src="js/systems/preloader.js"></script>
+  <script src="js/systems/audio-system.js"></script>
+
+  <!-- Engine -->
+  <script src="js/engine/animation-engine.js"></script>
+  <script src="js/engine/scene-manager.js"></script>
+  <script src="js/engine/interaction-engine.js"></script>
+
+  <!-- Main -->
+  <script src="js/main/script.js"></script>
+
+</body>
+</html>
